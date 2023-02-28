@@ -134,7 +134,7 @@ const Results = () => {
     setTimeout(() => {
       window.open(
         `https://wa.me/5582981377969?text=${encodeURI(
-          `Oii vim conferir as prévias da minha logo \n\nMarca: *${name}* \nArea: *${area}* \nDescrição: *${bio}*\nTipo de logo: *${type}*\nPersonalidade da marca: *${persona}*\nCores:*${colors}*`
+          `Oii vim conferir as prévias da minha logo \n\nNome: *${name}* \nArea: *${area}* \nDescrição: *${bio}*\nTipo de logo: *${type}*\nPersonalidade da marca: *${persona}*\nCores:*${colors}*`
         )}`,
         '_blank'
       );

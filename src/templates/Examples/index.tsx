@@ -296,8 +296,26 @@ const Examples = () => {
             <>
               <div className="top w-full  sm:mb-2 flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 sm:gap-x-4">
                 <div className="w-full sm:w-1/2">
+                  <label
+                    htmlFor="name"
+                    className="block mb-2  text-lg sm:text-base font-medium text-white"
+                  >
+                    Qual é o seu nome?
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className=" border   text-lg sm:text-base rounded-lg  block w-full p-2.5 bg-zinc-800 border-zinc-600 placeholder-zinc-400 text-white focus:ring-orange-500 focus:border-orange-500"
+                    placeholder="Ex.: Maria Silva"
+                    required
+                  />
+                </div>
+                <div className="w-full sm:w-1/2">
                   <label className="block mb-2  text-lg sm:text-base font-medium text-white dark:text-white">
-                    Área de atuação
+                    Área de atuação da marca
                   </label>
                   <div>
                     <div
@@ -500,25 +518,6 @@ const Examples = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className="w-full sm:w-1/2">
-                  <label
-                    htmlFor="brand_name"
-                    className="block mb-2  text-lg sm:text-base font-medium text-white"
-                  >
-                    Qual o nome da marca?
-                  </label>
-                  <input
-                    type="text"
-                    id="brand_name"
-                    name="brand_name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className=" border   text-lg sm:text-base rounded-lg  block w-full p-2.5 bg-zinc-800 border-zinc-600 placeholder-zinc-400 text-white focus:ring-orange-500 focus:border-orange-500"
-                    placeholder="Ex.: IH Advocacia"
-                    required
-                  />
-                </div>
               </div>
 
               <div className="w-full ">
@@ -526,7 +525,7 @@ const Examples = () => {
                   htmlFor="company_description"
                   className="block mb-2  text-lg sm:text-base font-medium text-white"
                 >
-                  Qual serviço sua empresa vende ou presta?
+                  Qual serviço sua marca vende ou presta?
                 </label>
                 <input
                   type="text"
@@ -755,7 +754,7 @@ const Examples = () => {
               </h3>
               <span className="text-zinc-400 text-center -mt-2">
                 (cores iniciais para a prévia, pode deixar sem nenhuma que será
-                preto e branco :))
+                preto e branco 😊)
               </span>
               <ul className="block w-full text-center gap-6">
                 {disponibleColors.map((color: any, index) => (
