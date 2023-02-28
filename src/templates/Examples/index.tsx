@@ -118,6 +118,10 @@ const Examples = () => {
     fbq.event(event, content);
   };
 
+  const customEventEmit = (event: string, content?: any) => {
+    fbq.customEvent(event, content);
+  };
+
   function changeStep(step: number) {
     setLoading(true);
 
@@ -174,10 +178,15 @@ const Examples = () => {
         setLoading(false);
 
         if (step === 1) {
-          eventEmit('ViewContent', {
-            content_name: name,
-            content_category: 'form',
+          customEventEmit('Stage1Finished', {
+            name,
+            area,
+            bio,
           });
+        }
+
+        if (step === 2) {
+          customEventEmit('Stage2Finished');
         }
 
         setSteps(step);

@@ -9,3 +9,7 @@ export const pageview = () => {
 export const event = (name, options = {}) => {
   window.fbq('track', name, options);
 };
+
+export const customEvent = (name, options = {}) => {
+  window.fbq('trackCustom', name, options);
+};

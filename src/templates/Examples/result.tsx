@@ -106,15 +106,20 @@ const Results = () => {
     fbq.event(event, content);
   };
 
+  const customEventEmit = (event: string, content?: any) => {
+    fbq.customEvent(event, content);
+  };
+
   function activeForm() {
     setLoading(true);
     setFormActive(true);
 
     setTimeout(() => {
       setLoading(false);
-      eventEmit('ViewContent', {
-        content_name: name,
-        content_category: 'result',
+      customEventEmit('ViewResultPage', {
+        brandName: name,
+        bio,
+        area,
       });
     }, 1000);
   }
