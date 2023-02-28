@@ -14,6 +14,7 @@ import { useTimer } from 'react-timer-hook';
 import { zinc } from 'tailwindcss/colors';
 
 import BackImg from '../../background/back.png';
+import * as fbq from '../../libs/fpixel';
 
 function MyTimer({ expiryTimestamp }: any) {
   const { seconds, minutes, hours, days } = useTimer({
@@ -100,12 +101,21 @@ const Results = () => {
   const router = useRouter();
   const [pageKey, setPageKey] = useState(Date.now());
   const { name, bio, area, type, persona, colors } = router.query;
+
+  const eventEmit = (event: string, content?: any) => {
+    fbq.event(event, content);
+  };
+
   function activeForm() {
     setLoading(true);
     setFormActive(true);
 
     setTimeout(() => {
       setLoading(false);
+      eventEmit('ViewContent', {
+        content_name: name,
+        content_category: 'result',
+      });
     }, 1000);
   }
 
@@ -115,12 +125,15 @@ const Results = () => {
   }, [router.asPath]);
 
   function goToWhatsApp() {
-    window.open(
-      `https://wa.me/5582981377969?text=${encodeURI(
-        `Oii vim conferir as prévias da minha logo \n\nMarca: *${name}* \nArea: *${area}* \nDescrição: *${bio}*\nTipo de logo: *${type}*\nPersonalidade da marca: *${persona}*\nCores:*${colors}*`
-      )}`,
-      '_blank'
-    );
+    eventEmit('Contact');
+    setTimeout(() => {
+      window.open(
+        `https://wa.me/5582981377969?text=${encodeURI(
+          `Oii vim conferir as prévias da minha logo \n\nMarca: *${name}* \nArea: *${area}* \nDescrição: *${bio}*\nTipo de logo: *${type}*\nPersonalidade da marca: *${persona}*\nCores:*${colors}*`
+        )}`,
+        '_blank'
+      );
+    }, 200);
   }
 
   useEffect(() => {

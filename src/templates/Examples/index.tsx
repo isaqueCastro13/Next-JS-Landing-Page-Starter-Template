@@ -12,6 +12,7 @@ import { zinc } from 'tailwindcss/colors';
 
 import logosImg from '../../assets/logos.jpg';
 import BackImg from '../../background/back.webp';
+import * as fbq from '../../libs/fpixel';
 
 function MyTimer({ expiryTimestamp }: any) {
   const { seconds, minutes, hours, days } = useTimer({
@@ -111,6 +112,12 @@ const Examples = () => {
   const [colors, setColors] = useState<string[]>(['preto', 'branco']);
   const [isVisible, setIsVisible] = useState(false);
 
+  // CompleteRegistration
+
+  const eventEmit = (event: string, content?: any) => {
+    fbq.event(event, content);
+  };
+
   function changeStep(step: number) {
     setLoading(true);
 
@@ -156,11 +163,23 @@ const Examples = () => {
       return;
     }
 
+    if (step === 3) {
+      eventEmit('CompleteRegistration');
+    }
+
     setTimeout(() => {
       if (step === 3) {
         window.location.href = `/resultado?name=${name}&area=${area}&bio=${bio}&type=${type}&persona=${persona}&colors=${colors.toString()}`;
       } else {
         setLoading(false);
+
+        if (step === 1) {
+          eventEmit('ViewContent', {
+            content_name: name,
+            content_category: 'form',
+          });
+        }
+
         setSteps(step);
       }
     }, 1000);
