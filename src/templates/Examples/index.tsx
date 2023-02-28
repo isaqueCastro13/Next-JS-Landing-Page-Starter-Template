@@ -112,6 +112,16 @@ const Examples = () => {
   const [colors, setColors] = useState<string[]>(['preto', 'branco']);
   const [isVisible, setIsVisible] = useState(false);
 
+  const [disponibleColors] = useState([
+    { label: 'amarelo', color: 'yellow' },
+    { label: 'azul', color: 'blue' },
+    { label: 'verde', color: 'green' },
+    { label: 'vermelho', color: 'red' },
+    { label: 'roxo', color: 'purple' },
+    { label: 'laranja', color: 'orange' },
+    { label: 'teal', color: 'teal' },
+  ]);
+
   // CompleteRegistration
 
   const eventEmit = (event: string, content?: any) => {
@@ -235,8 +245,8 @@ const Examples = () => {
         <div className="hero mb-8 ">
           <small className="text-lg sm:text-base font-light block mr-auto ml-auto text-left text-zinc-300">
             Crie a{' '}
-            <span className="text-white font-bold">logo da sua marca</span> com
-            a tecnologia da IA
+            <span className="text-orange-400 font-bold">logo da sua marca</span>{' '}
+            com a tecnologia da IA
           </small>
           <h1 className="text-white leading-none mt-8 w-full max-w-[1000px] font-bold text-4xl text-left">
             {steps === 0 && (
@@ -739,209 +749,45 @@ const Examples = () => {
                 preto e branco :))
               </span>
               <ul className="block w-full text-center gap-6">
-                <li className="inline-block mb-2 mx-1 select-none">
-                  <input
-                    type="checkbox"
-                    id="orange"
-                    name="select-color"
-                    value="laranja"
-                    checked={colors.indexOf('laranja') !== -1}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setColors((old) => [...old, e.target.value]);
-                      } else {
-                        setColors((old) => {
-                          let od = [...old];
-                          od = od.filter((i) => i !== e.target.value);
-                          return od;
-                        });
-                      }
-                    }}
-                    className="hidden peer"
-                  />
-                  <label
-                    htmlFor="orange"
-                    className="inline-flex w-10 h-10 peer-checked:scale-110 items-center justify-center border-transparent border-2  cursor-pointer dark:hover:text-zinc-300 peer-checked:border-orange-500  p-2 peer-checked:text-zinc-300 rounded-sm text-zinc-400 bg-zinc-800"
+                {disponibleColors.map((color: any, index) => (
+                  <li
+                    key={index}
+                    className="inline-block mb-2 mx-1 select-none"
                   >
-                    <div className="w-full h-full rounded-sm p-[2px] bg-zinc-50 border-3 border-transparent">
-                      <div className="bg-orange-500 rounded-sm w-full h-full border-2 border-zinc-800"></div>
-                    </div>
-                  </label>
-                </li>
-                <li className="inline-block mb-2 mx-1 select-none">
-                  <input
-                    type="checkbox"
-                    id="blue"
-                    name="select-color"
-                    value="azul"
-                    checked={colors.indexOf('azul') !== -1}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setColors((old) => [...old, e.target.value]);
-                      } else {
-                        setColors((old) => {
-                          let od = [...old];
-                          od = od.filter((i) => i !== e.target.value);
-                          return od;
-                        });
-                      }
-                    }}
-                    className="hidden peer"
-                  />
-                  <label
-                    htmlFor="blue"
-                    className="inline-flex w-10 h-10 peer-checked:scale-110 items-center justify-center border-transparent border-2  cursor-pointer dark:hover:text-zinc-300 peer-checked:border-blue-600  p-2 peer-checked:text-zinc-300 rounded-sm text-zinc-400 bg-zinc-800"
-                  >
-                    <div className="w-full h-full rounded-sm p-[2px] bg-zinc-50 border-3 border-transparent">
-                      <div className="bg-blue-500 rounded-sm w-full h-full border-2 border-zinc-800"></div>
-                    </div>
-                  </label>
-                </li>
-                <li className="inline-block mb-2 mx-1 select-none">
-                  <input
-                    type="checkbox"
-                    id="red"
-                    name="select-color"
-                    checked={colors.indexOf('vermelho') !== -1}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setColors((old) => [...old, e.target.value]);
-                      } else {
-                        setColors((old) => {
-                          let od = [...old];
-                          od = od.filter((i) => i !== e.target.value);
-                          return od;
-                        });
-                      }
-                    }}
-                    value="vermelho"
-                    className="hidden peer"
-                  />
-                  <label
-                    htmlFor="red"
-                    className="inline-flex w-10 h-10 peer-checked:scale-110 items-center justify-center border-transparent border-2  cursor-pointer dark:hover:text-zinc-300 peer-checked:border-red-600  p-2 peer-checked:text-zinc-300 rounded-sm text-zinc-400 bg-zinc-800"
-                  >
-                    <div className="w-full h-full rounded-sm p-[2px] bg-zinc-50 border-3 border-transparent">
-                      <div className="bg-red-500 rounded-sm w-full h-full border-2 border-zinc-800"></div>
-                    </div>
-                  </label>
-                </li>
-                <li className="inline-block mb-2 mx-1 select-none">
-                  <input
-                    type="checkbox"
-                    id="yellow"
-                    name="select-color"
-                    value="amarelo"
-                    checked={colors.indexOf('amarelo') !== -1}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setColors((old) => [...old, e.target.value]);
-                      } else {
-                        setColors((old) => {
-                          let od = [...old];
-                          od = od.filter((i) => i !== e.target.value);
-                          return od;
-                        });
-                      }
-                    }}
-                    className="hidden peer"
-                  />
-                  <label
-                    htmlFor="yellow"
-                    className="inline-flex w-10 h-10 peer-checked:scale-110 items-center justify-center border-transparent border-2  cursor-pointer dark:hover:text-zinc-300 peer-checked:border-yellow-600  p-2 peer-checked:text-zinc-300 rounded-sm text-zinc-400 bg-zinc-800"
-                  >
-                    <div className="w-full h-full rounded-sm p-[2px] bg-zinc-50 border-3 border-transparent">
-                      <div className="bg-yellow-500 rounded-sm w-full h-full border-2 border-zinc-800"></div>
-                    </div>
-                  </label>
-                </li>
-                <li className="inline-block mb-2 mx-1 select-none">
-                  <input
-                    type="checkbox"
-                    id="green"
-                    name="select-color"
-                    checked={colors.indexOf('verde') !== -1}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setColors((old) => [...old, e.target.value]);
-                      } else {
-                        setColors((old) => {
-                          let od = [...old];
-                          od = od.filter((i) => i !== e.target.value);
-                          return od;
-                        });
-                      }
-                    }}
-                    value="verde"
-                    className="hidden peer"
-                  />
-                  <label
-                    htmlFor="green"
-                    className="inline-flex w-10 h-10 peer-checked:scale-110 items-center justify-center border-transparent border-2  cursor-pointer dark:hover:text-zinc-300 peer-checked:border-green-600  p-2 peer-checked:text-zinc-300 rounded-sm text-zinc-400 bg-zinc-800"
-                  >
-                    <div className="w-full h-full rounded-sm p-[2px] bg-zinc-50 border-3 border-transparent">
-                      <div className="bg-green-500 rounded-sm w-full h-full border-2 border-zinc-800"></div>
-                    </div>
-                  </label>
-                </li>
-                <li className="inline-block mb-2 mx-1 select-none">
-                  <input
-                    type="checkbox"
-                    id="purple"
-                    name="select-color"
-                    value="roxo"
-                    checked={colors.indexOf('roxo') !== -1}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setColors((old) => [...old, e.target.value]);
-                      } else {
-                        setColors((old) => {
-                          let od = [...old];
-                          od = od.filter((i) => i !== e.target.value);
-                          return od;
-                        });
-                      }
-                    }}
-                    className="hidden peer"
-                  />
-                  <label
-                    htmlFor="purple"
-                    className="inline-flex w-10 h-10 peer-checked:scale-110 items-center justify-center border-transparent border-2  cursor-pointer dark:hover:text-zinc-300 peer-checked:border-purple-500  p-2 peer-checked:text-zinc-300 rounded-sm text-zinc-400 bg-zinc-800"
-                  >
-                    <div className="w-full h-full rounded-sm p-[2px] bg-zinc-50 border-3 border-transparent">
-                      <div className="bg-purple-500 rounded-sm w-full h-full border-2 border-zinc-800"></div>
-                    </div>
-                  </label>
-                </li>
-                <li className="inline-block mb-2 mx-1 select-none">
-                  <input
-                    type="checkbox"
-                    id="teal"
-                    checked={colors.indexOf('teal') !== -1}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setColors((old) => [...old, e.target.value]);
-                      } else {
-                        setColors((old) => {
-                          let od = [...old];
-                          od = od.filter((i) => i !== e.target.value);
-                          return od;
-                        });
-                      }
-                    }}
-                    name="select-color"
-                    value="teal"
-                    className="hidden peer"
-                  />
-                  <label
-                    htmlFor="teal"
-                    className="inline-flex w-10 h-10 peer-checked:scale-110 items-center justify-center border-transparent border-2  cursor-pointer dark:hover:text-zinc-300 peer-checked:border-teal-600  p-2 peer-checked:text-zinc-300 rounded-sm text-zinc-400 bg-zinc-800"
-                  >
-                    <div className="w-full h-full rounded-sm p-[2px] bg-zinc-50 border-3 border-transparent">
-                      <div className="bg-teal-500 rounded-sm w-full h-full border-2 border-zinc-800"></div>
-                    </div>
-                  </label>
-                </li>
+                    <input
+                      type="checkbox"
+                      id={`color-id-${color.color}`}
+                      name="select-color"
+                      value={color.label}
+                      checked={colors.indexOf(color.label) !== -1}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setColors((old) => [...old, e.target.value]);
+                        } else {
+                          setColors((old) => {
+                            let od = [...old];
+                            od = od.filter((i) => i !== e.target.value);
+                            return od;
+                          });
+                        }
+                      }}
+                      className="hidden peer"
+                    />
+                    <label
+                      htmlFor={`color-id-${color.color}`}
+                      className={`inline-flex w-full h-full items-center  justify-center pr-3 cursor-pointer border-2 border-transparent peer-checked:border-zinc-300 bg-zinc-800  peer-checked:bg-white peer-checked:text-zinc-800 p-2  rounded-sm text-zinc-400 `}
+                    >
+                      <div className="w-4 h-4  rounded-sm p-[2px] bg-zinc-50 border-3 border-transparent">
+                        <div
+                          className={`bg-${color.color}-500 rounded-sm w-full h-full border-2 border-zinc-800`}
+                        ></div>
+                      </div>
+                      <span className="text-sm font-bold ml-2">
+                        {String(color.label).toUpperCase()}
+                      </span>
+                    </label>
+                  </li>
+                ))}
               </ul>
             </div>
           )}
