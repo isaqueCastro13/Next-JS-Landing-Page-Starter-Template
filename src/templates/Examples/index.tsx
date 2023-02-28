@@ -228,6 +228,15 @@ const Examples = () => {
 
   return (
     <div className="wrapper w-full sm:h-full flex flex-col-reverse md:flex-row justify-between items-center">
+      <div className="hidden">
+        <div className="peer-checked:bg-orange-500 bg-orange-500"></div>
+        <div className="peer-checked:bg-blue-500 bg-blue-500"></div>
+        <div className="peer-checked:bg-green-500 bg-green-500"></div>
+        <div className="peer-checked:bg-purple-500 bg-purple-500"></div>
+        <div className="peer-checked:bg-yellow-500 bg-yellow-500"></div>
+        <div className="peer-checked:bg-teal-500 bg-teal-500"></div>
+        <div className="peer-checked:bg-red-500 bg-red-500"></div>
+      </div>
       <Head>
         <title>
           Confira uma prévia da sua logo criada por IA gratuitamente | Publikup
@@ -775,7 +784,7 @@ const Examples = () => {
                     />
                     <label
                       htmlFor={`color-id-${color.color}`}
-                      className={`inline-flex w-full h-full items-center  justify-center pr-3 cursor-pointer border-2 border-transparent peer-checked:border-zinc-300 bg-zinc-800  peer-checked:bg-white peer-checked:text-zinc-800 p-2  rounded-sm text-zinc-400 `}
+                      className={`inline-flex w-full h-full items-center  justify-center pr-3 cursor-pointer  bg-zinc-800  peer-checked:bg-${color.color}-500 peer-checked:text-zinc-800 p-2  rounded-sm text-zinc-400 `}
                     >
                       <div className="w-4 h-4  rounded-sm p-[2px] bg-zinc-50 border-3 border-transparent">
                         <div
