@@ -1,6 +1,6 @@
-import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 
 import { AppConfig } from '../utils/AppConfig';
 
@@ -17,6 +17,7 @@ const Meta = (props: IMetaProps) => {
     <>
       <Head>
         <meta charSet="UTF-8" key="charset" />
+        <meta name="theme-color" content="#18181b" />
         <meta
           name="viewport"
           content="width=device-width,initial-scale=1"
