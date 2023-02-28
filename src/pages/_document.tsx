@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/next-script-for-ga */
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
+import { FB_PIXEL_ID } from '../libs/fpixel';
 import { GTM_ID } from '../libs/gtm';
 import { AppConfig } from '../utils/AppConfig';
 
@@ -39,6 +41,14 @@ class MyDocument extends Document {
             name="description"
             content="Obtenha uma logo incrível para sua empresa em minutos com nosso serviço de criação de logos com IA e designers. Ganhe prévias gratuitas e sem compromisso e tenha uma visualização instantânea de como sua logo ficará. Acesse agora e transforme a identidade visual de sua marca!"
           />
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: 'none' }}
+              src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
+            />
+          </noscript>
         </Head>
         <body className="dark" style={{ height: '100%' }}>
           <noscript>
