@@ -16,7 +16,7 @@ import BackImg from '../../background/back.webp';
 function MyTimer({ expiryTimestamp }: any) {
   const { seconds, minutes, hours, days } = useTimer({
     expiryTimestamp,
-    onExpire: () => console.warn('onExpire called'),
+    onExpire: () => {},
   });
 
   return (
