@@ -13,7 +13,7 @@ import TextLoop from 'react-text-loop';
 import { useTimer } from 'react-timer-hook';
 import { zinc } from 'tailwindcss/colors';
 
-import BackImg from '../../background/back.png';
+import BackImg from '../../background/back.webp';
 import * as fbq from '../../libs/fpixel';
 
 function MyTimer({ expiryTimestamp }: any) {

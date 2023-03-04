@@ -1,6 +1,7 @@
 /* eslint-disable import/order */
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
+import { Analytics } from '@vercel/analytics/react';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/global.css';
 
@@ -59,6 +60,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       />
       {/* Same as */}
       <Component {...pageProps} />
+      <Analytics />
     </>
   );
 };
